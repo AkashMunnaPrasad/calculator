@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CalcMaster Pro</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="calc-container">
+    <header class="calc-header">
+      <h1>CalcMaster</h1>
+      <div class="header-controls">
+        <button class="mode-toggle" id="modeToggle" title="Toggle Scientific Mode" aria-label="Toggle scientific mode">
+          <svg viewBox="0 0 24 24" width="20" height="20"><path fill="currentColor" d="M7 3H5v6h2V3zm12 0h-2v10h2V3zM3 13h2v8H3v-8zm4 0h2v8H7v-8zm4 0h2v8h-2v-8zm4 0h2v8h-2v-8zm4 0h2v8h-2v-8z"/></svg>
+        </button>
+        <button class="theme-toggle" id="themeToggle" title="Toggle Theme" aria-label="Toggle theme">
+          <svg class="sun-icon" viewBox="0 0 24 24" width="20" height="20"><path fill="currentColor" d="M12 7c-2.76 0-5 2.24-5 5s2.24 5 5 5 5-2.24 5-5-2.24-5-5-5zM2 13h2c.55 0 1-.45 1-1s-.45-1-1-1H2c-.55 0-1 .45-1 1s.45 1 1 1zm18 0h2c.55 0 1-.45 1-1s-.45-1-1-1h-2c-.55 0-1 .45-1 1s.45 1 1 1zM11 2v2c0 .55.45 1 1 1s1-.45 1-1V2c0-.55-.45-1-1-1s-1 .45-1 1zm0 18v2c0 .55.45 1 1 1s1-.45 1-1v-2c0-.55-.45-1-1-1s-1 .45-1 1zM5.99 4.58a.996.996 0 00-1.41 0 .996.996 0 000 1.41l1.06 1.06c.39.39 1.03.39 1.41 0s.39-1.03 0-1.41L5.99 4.58zm12.37 12.37a.996.996 0 00-1.41 0 .996.996 0 000 1.41l1.06 1.06c.39.39 1.03.39 1.41 0a.996.996 0 000-1.41l-1.06-1.06zm1.06-10.96a.996.996 0 000-1.41.996.996 0 00-1.41 0l-1.06 1.06c-.39.39-.39 1.03 0 1.41s1.03.39 1.41 0l1.06-1.06zM7.05 18.36a.996.996 0 000-1.41.996.996 0 00-1.41 0l-1.06 1.06c-.39.39-.39 1.03 0 1.41s1.03.39 1.41 0l1.06-1.06z"/></svg>
+          <svg class="moon-icon" viewBox="0 0 24 24" width="20" height="20" style="display:none"><path fill="currentColor" d="M12 3a9 9 0 109 9c0-.46-.04-.92-.1-1.36a5.389 5.389 0 01-4.4 2.26 5.403 5.403 0 01-3.14-9.8c-.44-.06-.9-.1-1.36-.1z"/></svg>
+        </button>
+        <button class="history-toggle" id="historyToggle" title="History" aria-label="Toggle history">
+          <svg viewBox="0 0 24 24" width="20" height="20"><path fill="currentColor" d="M13 3a9 9 0 00-9 9H1l3.89 3.89.07.14L9 12H6c0-3.87 3.13-7 7-7s7 3.13 7 7-3.13 7-7 7c-1.93 0-3.68-.79-4.94-2.06l-1.42 1.42A8.954 8.954 0 0013 21a9 9 0 000-18zm-1 5v5l4.28 2.54.72-1.21-3.5-2.08V8H12z"/></svg>
+        </button>
+      </div>
+    </header>
+
+    <div class="calc-body">
+      <div class="calc-main">
+        <div class="display-area">
+          <div class="expression" id="expression"></div>
+          <div class="display" id="display">0</div>
+        </div>
+
+        <!-- Scientific Buttons -->
+        <div class="sci-buttons" id="sciButtons" style="display:none">
+          <button class="btn sci" data-action="sin">sin</button>
+          <button class="btn sci" data-action="cos">cos</button>
+          <button class="btn sci" data-action="tan">tan</button>
+          <button class="btn sci" data-action="log">log</button>
+          <button class="btn sci" data-action="ln">ln</button>
+          <button class="btn sci" data-action="sqrt">√</button>
+          <button class="btn sci" data-action="cbrt">∛</button>
+          <button class="btn sci" data-action="square">x²</button>
+          <button class="btn sci" data-action="cube">x³</button>
+          <button class="btn sci" data-action="power">x^y</button>
+          <button class="btn sci" data-action="factorial">x!</button>
+          <button class="btn sci" data-action="inv">1/x</button>
+          <button class="btn sci" data-action="pi">π</button>
+          <button class="btn sci" data-action="e">e</button>
+          <button class="btn sci" data-action="abs">|x|</button>
+          <button class="btn sci" data-action="mod">mod</button>
+          <button class="btn sci" data-action="exp">exp</button>
+          <button class="btn sci" data-action="rand">rand</button>
+        </div>
+
+        <!-- Main Buttons -->
+        <div class="btn-grid">
+          <button class="btn clear" data-action="clear">AC</button>
+          <button class="btn del" data-action="delete">⌫</button>
+          <button class="btn op" data-action="percent">%</button>
+          <button class="btn op" data-action="divide">÷</button>
+
+          <button class="btn num" data-action="7">7</button>
+          <button class="btn num" data-action="8">8</button>
+          <button class="btn num" data-action="9">9</button>
+          <button class="btn op" data-action="multiply">×</button>
+
+          <button class="btn num" data-action="4">4</button>
+          <button class="btn num" data-action="5">5</button>
+          <button class="btn num" data-action="6">6</button>
+          <button class="btn op" data-action="subtract">−</button>
+
+          <button class="btn num" data-action="1">1</button>
+          <button class="btn num" data-action="2">2</button>
+          <button class="btn num" data-action="3">3</button>
+          <button class="btn op" data-action="add">+</button>
+
+          <button class="btn num zero" data-action="0">0</button>
+          <button class="btn num" data-action="decimal">.</button>
+          <button class="btn equals" data-action="calculate">=</button>
+        </div>
+      </div>
+
+      <!-- History Panel -->
+      <div class="history-panel" id="historyPanel">
+        <div class="history-header">
+          <h2>History</h2>
+          <button class="clear-history" id="clearHistory" aria-label="Clear history">Clear All</button>
+        </div>
+        <div class="history-list" id="historyList"></div>
+      </div>
+    </div>
+
+    <footer class="calc-footer">
+      <p>⌨ Keyboard supported &bull; Responsive design</p>
+    </footer>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
